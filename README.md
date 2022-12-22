@@ -32,7 +32,7 @@ By the way, we can also execute some code such as phpinfo() or phpversion().
 Via the shell url:
 ![3](./3.png)
 
-We've ger the page's url and execute the phpinfo() and phpversion() code successfully!
+We've get the page's url(at the top of this page) and execute the phpinfo() and phpversion() code successfully!
 
 
 
