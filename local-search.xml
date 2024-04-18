@@ -4,13 +4,27 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2024/04/08/hello-world/"/>
-    <url>/2024/04/08/hello-world/</url>
+    <title>一次歪打正着的edusrc挖洞</title>
+    <link href="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/"/>
+    <url>/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>最近在忙着弄Hexo，经常收到edusrc上新礼品的通知，晚上闲的没事看看能不能投机取巧刷几分</p><h1 id="寻找目标"><a href="#寻找目标" class="headerlink" title="寻找目标"></a>寻找目标</h1><p>翻了一下最近几天的漏洞列表，发现大部分都是大佬用0day和通杀刷分</p><p>突然我发现了目标，说不定可以捡个漏<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/1.png" alt="1"></p><p>这种落单的乡镇中学的官网，一般只要不是使用的建站系统，都有洞可挖</p><p>打开fofa，直接复制学校名搜索<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/2.png" alt="2"><br>一共四个资产，其中最后学校官网为第三方系统搭建，为了快速刷分直接放弃</p><h1 id="开始挖洞"><a href="#开始挖洞" class="headerlink" title="开始挖洞"></a>开始挖洞</h1><p><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/3.png" alt="3"></p><p>首先测试一波最直观的SQL注入漏洞</p><p>打开我们最喜欢的burpsuite，启动xia sql插件</p><p>复制资产URL，填到bp内置浏览器里</p><p>然后无脑瞎点，发现用户注册页面有一个下拉选择学校列表的功能</p><p>直觉告诉我这里有搞头，丢插件测试一波</p><p><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/4.png" alt="4"></p><p>继续无脑，sqlmap启动！</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">python sqlmap<span class="hljs-selector-class">.py</span> -r <span class="hljs-number">1</span><span class="hljs-selector-class">.txt</span> <span class="hljs-attr">--random-agent</span> <span class="hljs-attr">--threads</span> <span class="hljs-number">10</span> <span class="hljs-attr">--batch</span><br></code></pre></td></tr></table></figure><p>爆金币啦<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/5.png" alt="5"></p><p>直接拿下，不过可惜不是dba<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/6.png" alt="6"></p><h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>还剩下2个站，依次点开看了下都是一样的，直接重复又拿到两个sql注入</p><p>edusrc捡漏刷分成功*3<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/7.png" alt="7"></p>]]></content>
     
     
+    <categories>
+      
+      <category>漏洞</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>edusrc</tag>
+      
+      <tag>sql注入</tag>
+      
+    </tags>
     
   </entry>
   
