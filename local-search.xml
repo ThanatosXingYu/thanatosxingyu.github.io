@@ -20,7 +20,32 @@
     
     <tags>
       
+      <tag>sql注入</tag>
+      
       <tag>edusrc</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LoveCards表白墙SQL注入漏洞</title>
+    <link href="/2023/10/20/LoveCards%E8%A1%A8%E7%99%BD%E5%A2%99SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/"/>
+    <url>/2023/10/20/LoveCards%E8%A1%A8%E7%99%BD%E5%A2%99SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</url>
+    
+    <content type="html"><![CDATA[<h1 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h1><p>拿到站后开始对该表白墙系统进行常规渗透测试。在搜索页发现”等符号会被转义<br><img src="/2023/10/20/LoveCards%E8%A1%A8%E7%99%BD%E5%A2%99SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/1.png" alt="1"></p><p>然后后台跑了一波字典无果，正打算放弃，bp插件给我返回了一个err </p><p>“You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘111.xx.xx.106” at line 1″<br><img src="/2023/10/20/LoveCards%E8%A1%A8%E7%99%BD%E5%A2%99SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/2.png" alt="2"></p><p>都到眼前了，直接sqlmap一把梭<br><img src="/2023/10/20/LoveCards%E8%A1%A8%E7%99%BD%E5%A2%99SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/3.png" alt="3"></p><p>看了一下不是dba，那就直接翻翻数据库<br><img src="/2023/10/20/LoveCards%E8%A1%A8%E7%99%BD%E5%A2%99SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/4.png" alt="4"></p><p>找到后台密码了，解密让我无语的md5<br><img src="/2023/10/20/LoveCards%E8%A1%A8%E7%99%BD%E5%A2%99SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/5.png" alt="5"></p><p>进入后台</p><p>文件上传一键getshell~<br><img src="/2023/10/20/LoveCards%E8%A1%A8%E7%99%BD%E5%A2%99SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/6.png" alt="6"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>漏洞</category>
+      
+    </categories>
+    
+    
+    <tags>
       
       <tag>sql注入</tag>
       
