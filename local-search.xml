@@ -20,9 +20,9 @@
     
     <tags>
       
-      <tag>sql注入</tag>
-      
       <tag>edusrc</tag>
+      
+      <tag>sql注入</tag>
       
     </tags>
     
@@ -75,6 +75,33 @@
       <tag>RCE</tag>
       
       <tag>POC</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>学习强国被爆出多个后门及漏洞</title>
+    <link href="/2022/09/09/%E5%AD%A6%E4%B9%A0%E5%BC%BA%E5%9B%BD%E8%A2%AB%E7%88%86%E5%87%BA%E5%A4%9A%E4%B8%AA%E5%90%8E%E9%97%A8%E5%8F%8A%E6%BC%8F%E6%B4%9E/"/>
+    <url>/2022/09/09/%E5%AD%A6%E4%B9%A0%E5%BC%BA%E5%9B%BD%E8%A2%AB%E7%88%86%E5%87%BA%E5%A4%9A%E4%B8%AA%E5%90%8E%E9%97%A8%E5%8F%8A%E6%BC%8F%E6%B4%9E/</url>
+    
+    <content type="html"><![CDATA[<h1 id="学习强国被爆含有包括信息收集、代码执行等多个漏洞及后门"><a href="#学习强国被爆含有包括信息收集、代码执行等多个漏洞及后门" class="headerlink" title="学习强国被爆含有包括信息收集、代码执行等多个漏洞及后门"></a>学习强国被爆含有包括信息收集、代码执行等多个漏洞及后门</h1><p>SGN-01-001 Information gathering (Assumed)</p><p>SGN-01-002 File transmission and protection (Evident)</p><p>SGN-01-003 Code execution and backdoors (Evident)</p><p>SGN-01-004 Obfuscation for hiding functionality (Proven)</p><p>SGN-01-005 Collaboration with external companies (Evident)</p><p>SGN-01-006 Similarities &amp; differences to other spy apps(Unclear)</p><h1 id="详细分析见分析报告"><a href="#详细分析见分析报告" class="headerlink" title="详细分析见分析报告"></a>详细分析见分析报告</h1><p>报告下载：<a href="analysis_report_sgn.pdf">analysis_report_sgn.pdf</a></p><p>来自 <a href="cure53.de">cure53</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>漏洞</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习强国</tag>
+      
+      <tag>后门</tag>
       
     </tags>
     
