@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A-Frame Page for Frap</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+  </head>
+  <body>
+    <a-scene physics="gravity: -9.8">
+      <a-plane color="#7BC8A4" height="10" width="10" rotation="-90 0 0" static-body></a-plane>
+      
+      <script>
+        function getRandomColor() {
+          const letters = '0123456789ABCDEF';
+          let color = '#';
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        }
+
+        function getRandomPosition() {
+          return (Math.random() - 0.5) * 8;
+        }
+
+        function getRandomShape() {
+          const shapes = ['a-box', 'a-sphere', 'a-cylinder', 'a-cone'];
+          return shapes[Math.floor(Math.random() * shapes.length)];
+        }
+
+        for (let i = 0; i < 10; i++) {
+          const shape = getRandomShape();
+          const entity = document.createElement(shape);
+          entity.setAttribute('color', getRandomColor());
+          entity.setAttribute('position', `${getRandomPosition()} ${Math.random() * 3 + 1} ${getRandomPosition()}`);
+          entity.setAttribute('dynamic-body', '');
+
+          if (shape === 'a-sphere') {
+            entity.setAttribute('radius', 0.5);
+          } else if (shape === 'a-cylinder' || shape === 'a-cone') {
+            entity.setAttribute('height', 1);
+            entity.setAttribute('radius', 0.5);
+          } else {
+            entity.setAttribute('depth', 1);
+            entity.setAttribute('height', 1);
+            entity.setAttribute('width', 1);
+          }
+          document.querySelector('a-scene').appendChild(entity);
+        }
+      </script>
+    </a-scene>
+  </body>
+</html>
