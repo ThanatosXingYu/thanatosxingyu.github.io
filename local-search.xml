@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>记一次对欧盟的挖洞--尝试登榜欧盟名人堂</title>
+    <link href="/2024/06/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%AC%A7%E7%9B%9F%E7%9A%84%E6%8C%96%E6%B4%9E/"/>
+    <url>/2024/06/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%AC%A7%E7%9B%9F%E7%9A%84%E6%8C%96%E6%B4%9E/</url>
+    
+    <content type="html"><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>前两天看到朋友圈有佬登上了欧盟名人堂 <a href="https://cert.europa.eu/hall-of-fame">Hall of fame</a>，然后看了一下欧盟的<a href="https://cert.europa.eu/coordinated-vulnerability-disclosure-policy">漏洞纰漏政策</a>，决定尝试一下</p><h1 id="开始挖洞"><a href="#开始挖洞" class="headerlink" title="开始挖洞"></a>开始挖洞</h1><p>首先灯塔结合OneForAll收集europa.eu这个根域名下所有的子域名,建议还可以尝试搭配sublife等，尽量收集一个全面的欧盟子域名。<br><img src="/2024/06/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%AC%A7%E7%9B%9F%E7%9A%84%E6%8C%96%E6%B4%9E/1.png" alt="1"></p><p>挑中了一个幸运儿，经过测试发现存在XSS和SQL注入漏洞(欧盟好多网站没有waf是我没想到的）</p><p><img src="/2024/06/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%AC%A7%E7%9B%9F%E7%9A%84%E6%8C%96%E6%B4%9E/2.png" alt="2"></p><p>具体怎么挖洞就不说了，能看到我这个小破博客的应该不是外行就是同行大佬  </p><p>满怀欣喜的给CERT写邮件，还专门润色了好几遍，主打的就是一个舔狗</p><p><img src="/2024/06/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%AC%A7%E7%9B%9F%E7%9A%84%E6%8C%96%E6%B4%9E/3.png" alt="3"><br><img src="/2024/06/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%AC%A7%E7%9B%9F%E7%9A%84%E6%8C%96%E6%B4%9E/4.png" alt="4"></p><h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>WELL DONE，告诉我漏洞已经被交过了<br><em>We would like to thank you for reporting this issue to us. Additionally we would like to inform you that other researchers already have reported the same issue to us.</em><br><img src="/2024/06/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%AC%A7%E7%9B%9F%E7%9A%84%E6%8C%96%E6%B4%9E/5.png" alt="5"></p><p>唉</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>漏洞</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>sql注入</tag>
+      
+      <tag>欧盟</tag>
+      
+      <tag>渗透</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>东北方言编程语言给我整乐了--滚犊子吧你整的啥输入啊？</title>
     <link href="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/"/>
     <url>/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/</url>
@@ -47,9 +76,9 @@
     
     <tags>
       
-      <tag>edusrc</tag>
-      
       <tag>sql注入</tag>
+      
+      <tag>edusrc</tag>
       
     </tags>
     
