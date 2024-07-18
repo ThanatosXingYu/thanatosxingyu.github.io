@@ -5,12 +5,30 @@
   
   <entry>
     <title>记一次对某自习室系统的渗透测试</title>
-    <link href="/2024/07/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    <url>/2024/07/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</url>
+    <link href="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    <url>/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>最近偶然情况下接触了一个自习室小程序，自觉告诉我有搞头，于是打算看看有没有漏洞直接交SRC了</p><h1 id="开始挖洞"><a href="#开始挖洞" class="headerlink" title="开始挖洞"></a>开始挖洞</h1><h2 id="反编译小程序"><a href="#反编译小程序" class="headerlink" title="反编译小程序"></a>反编译小程序</h2><p>这里我用的是<a href="https://github.com/wux1an/wxapkg">wxapkg</a><br>在微信设置中打开微信文件的储存路径，接着打开Applet文件夹，复制当前路径<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png" alt="1"><br>cmd执行 <code>wxapkg_1.5.0_windows_amd64.exe scan 复制的路径</code><br>然后使用键盘的上下键选择需要反编译的小程序，接着按回车<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/2.png" alt="2"><br>这里有个小技巧，如果有的小程序没有显示Name的话，可以在执行命令之前将Applet文件夹内所有文件删除，然后在微信电脑端打开需要反编译的小程序，耐心等待加载完毕，接着Applet会出现一个新文件夹，新文件夹的文件名就是小程序的wxid，可以通过对比wxid来确定哪个是目标小程序</p><h2 id="提取链接"><a href="#提取链接" class="headerlink" title="提取链接"></a>提取链接</h2><p>反编译小程序之后，会在wxapkg出现以小程序wxid为名的文件夹<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/3.png" alt="3"><br>我直接用Python写了一个脚本，用来提取当前文件夹内所有文件中包含的URL</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> re<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">extract_urls_from_file</span>(<span class="hljs-params">file_path</span>):<br>    <span class="hljs-comment"># Define a regular expression pattern for matching URLs</span><br>    url_pattern = re.<span class="hljs-built_in">compile</span>(<span class="hljs-string">r&#x27;((https?|ftp)://[^\s/$.?#].[^\s]*)|www\.[^\s]+|[a-zA-Z0-9-]+\.[a-zA-Z]&#123;2,&#125;(/[^\s]*)?&#x27;</span>)<br>    urls = []<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file_path, <span class="hljs-string">&#x27;r&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>            <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> file:<br>                <span class="hljs-comment"># Find all URLs in the line</span><br>                found_urls = url_pattern.findall(line)<br>                <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> found_urls:<br>                    <span class="hljs-comment"># Combine all groups into a single non-empty string</span><br>                    combined_url = <span class="hljs-string">&#x27;&#x27;</span>.join(<span class="hljs-built_in">filter</span>(<span class="hljs-literal">None</span>, url))<br>                    <span class="hljs-keyword">if</span> combined_url:<br>                        urls.append(combined_url)<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Error reading file <span class="hljs-subst">&#123;file_path&#125;</span>: <span class="hljs-subst">&#123;e&#125;</span>&quot;</span>)<br>    <span class="hljs-keyword">return</span> urls<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">find_urls_in_directory</span>(<span class="hljs-params">directory</span>):<br>    all_urls = []<br>    <span class="hljs-keyword">for</span> root, _, files <span class="hljs-keyword">in</span> os.walk(directory):<br>        <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> files:<br>            file_path = os.path.join(root, file)<br>            urls = extract_urls_from_file(file_path)<br>            all_urls.extend(urls)<br>    <span class="hljs-keyword">return</span> all_urls<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    current_directory = os.getcwd()<br>    urls = find_urls_in_directory(current_directory)<br>    <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> urls:<br>        <span class="hljs-built_in">print</span>(url)<br><br></code></pre></td></tr></table></figure><p><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/4.png" alt="4"><br>这里一共发现了两个疑似URL<br>分别是<em><a href="https://m.ibuole.com/">https://m.ibuole.com</a></em>和<em><a href="https://m.ubuole.com/">https://m.ubuole.com</a>“</em></p><p>通过访问得知两个网站内容几乎一样，但是在小程序中 <strong>ibuole.com</strong> 出现的频率远比另一个高，于是选中这个作为目标域名</p><h2 id="子域收集"><a href="#子域收集" class="headerlink" title="子域收集"></a>子域收集</h2><p>这里我使用<a href="https://github.com/shmilylty/OneForAll">OneForAll</a><br><code>python oneforall.py --target ibuole.com run</code><br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/5.png" alt="5"><br>至于高级使用教程就不过多说明，不熟悉的可以去看项目主页的README</p><p>Bad News，只发现了一个有价值的子域，title是<em>商户管理系统</em><br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/6.png" alt="6"></p><p>试试吧</p><h2 id="开始打点"><a href="#开始打点" class="headerlink" title="开始打点"></a>开始打点</h2><p><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/7.png" alt="7"></p><p>打开我们最爱的BurpSuite，勾上xiaSQL，先乱点一通试试<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/8.png" alt="8"><br>可惜了，没发现什么注入点<br>Wappalyzer也只有一个PHP算是有效信息</p><p>注册了一个账号，后台也没什么功能<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/9.png" alt="9"> </p><p>试一下上传头像的功能点<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/10.png" alt="10"><br>直接上传失败，推测是有白名单<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/11.png" alt="11">  </p><p>尝试使用bp抓包修改绕过白名单<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/12.png" alt="12"><br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/13.png" alt="13"><br>哦豁，上传成功了 访问一下试试</p><p>结果悲剧了，是static，子站绑定的阿里云oss，不解析<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/14.png" alt="14">  </p><h2 id="转折"><a href="#转折" class="headerlink" title="转折"></a>转折</h2><p>又绕了一圈发现没什么转机，js也没有api泄露之类的，刚打算放弃这个站，结果转折来了</p><p>吃过午饭之后系统自动退出了，然后我也是各种巧合所以没输密码直接用的验证码登录<br>突然我发现，<strong>这次的验证码跟我半小时前注册的验证码一模一样</strong>，接着又是一通瞎点，碰巧的是我又发现<strong>只有账号密码页的登录按钮和发送验证码按钮需要通过极验，如果直接点手机验证码页的登录按钮则不需要通过极验</strong></p><p>说干就干，先简单抓个包研究一下<br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/15.png" alt="15"><br>一目了然，username是手机号，sms_code是输入的验证码，timestamp大概率是当前时间戳，nonce推测是随机的，sign是MD5  </p><p>丢Repeater修改一下看看能不能绕过sign验证<br>结果试了几种绕过姿势都不行，并且sign是唯一不重复的，推测应该又是<strong>老套的参数排列加key然后生成MD5</strong><br><img src="/2024/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%9F%90%E8%87%AA%E4%B9%A0%E5%AE%A4%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/16.png" alt="16"></p><h2 id="分析JS代码"><a href="#分析JS代码" class="headerlink" title="分析JS代码"></a>分析JS代码</h2><p>被逼上梁山了，现在只有这个一个办法了，只能硬着头皮扒JS</p>]]></content>
     
     
+    <categories>
+      
+      <category>漏洞</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>渗透</tag>
+      
+      <tag>小程序</tag>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
     
   </entry>
   
@@ -91,9 +109,9 @@
       
       <tag>sql注入</tag>
       
-      <tag>欧盟</tag>
-      
       <tag>渗透</tag>
+      
+      <tag>欧盟</tag>
       
     </tags>
     
@@ -181,7 +199,7 @@
   
   
   <entry>
-    <title>梦奈宝塔主机系统RCE</title>
+    <title>CVE-2022-48079--梦奈宝塔主机系统RCE</title>
     <link href="/2022/12/22/CVE-2022-48079--%E6%A2%A6%E5%A5%88%E5%AE%9D%E5%A1%94%E4%B8%BB%E6%9C%BA%E7%B3%BB%E7%BB%9FRCE/"/>
     <url>/2022/12/22/CVE-2022-48079--%E6%A2%A6%E5%A5%88%E5%AE%9D%E5%A1%94%E4%B8%BB%E6%9C%BA%E7%B3%BB%E7%BB%9FRCE/</url>
     
