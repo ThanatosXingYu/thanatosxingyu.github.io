@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/9.png">
 <meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/10.png">
 <meta property="article:published_time" content="2024-08-25T07:51:26.000Z">
-<meta property="article:modified_time" content="2024-08-26T15:29:13.508Z">
+<meta property="article:modified_time" content="2024-08-26T15:39:39.314Z">
 <meta property="article:author" content="Thanatos">
 <meta property="article:tag" content="GFW">
 <meta property="article:tag" content="翻墙">
@@ -308,7 +308,7 @@
 <ul>
 <li><p>DNS协议。GFW检测所有经过骨干网国际出口路由的位于TCP与UDP的53端口上的域名查询请求，等待和处于域名黑名单中的相匹配的。</p>
 </li>
-<li><p>HTTP协议。GFW检测包含用户访问的网站的域名的HTTP头中的Host字段和发送和回复全文，但对回复的检测在2008年末终止。详见：***<a href="Rambert-WWW21.pdf">Weinberg, Zachary; Barradas, Diogo; Christin, Nicolas. 《Chinese Wall or Swiss Cheese? Keyword Filtering in the Great Firewall of China》(PDF)</a>*** <strong>和</strong> <em><strong><a href="icdcs2010.pdf">Jong Chun Park; Jedidiah R. Crandall. 《Empirical Study of a National-Scale Distributed Intrusion Detection System: Backbone-Level Filtering of HTML Responses in China》(PDF)</a></strong></em></p>
+<li><p>HTTP协议。GFW检测包含用户访问的网站的域名的HTTP头中的Host字段和发送和回复全文，但对回复的检测在2008年末终止。详见：<a href="Rambert-WWW21.pdf"><em><strong>Weinberg, Zachary; Barradas, Diogo; Christin, Nicolas. 《Chinese Wall or Swiss Cheese? Keyword Filtering in the Great Firewall of China》(PDF)</strong></em></a> 和 <a href="icdcs2010.pdf"><em><strong>Jong Chun Park; Jedidiah R. Crandall. 《Empirical Study of a National-Scale Distributed Intrusion Detection System: Backbone-Level Filtering of HTML Responses in China》(PDF)</strong></em></a></p>
 </li>
 <li><p>Tor协议。GFW无法提取出任何加密前的原始内容，但可以分辨出疑似流量。一般之后以主动探测的形式确认（详见下文<a href="#%E4%B8%BB%E5%8A%A8%E6%8E%A2%E6%B5%8B">主动探测</a>）。</p>
 </li>
@@ -350,9 +350,9 @@
 </li>
 </ul>
 <h1 id="绕过GFW的主要技术"><a href="#绕过GFW的主要技术" class="headerlink" title="绕过GFW的主要技术"></a>绕过GFW的主要技术</h1><h2 id="全加密协议"><a href="#全加密协议" class="headerlink" title="全加密协议"></a>全加密协议</h2><p><strong>全加密协议</strong> 对数据包有效载荷的每一个字节都进行了加密，不同于像TLS这样的协议以明文握手开始，完全加密（随机化）的协议被设计成<strong>连接中的每个字节都与随机数据没有区别</strong>，以便让流量”看起来什么都不像”。<br>2021年11月初，GFW部署了一种新的审查技术，这种技术可以实时地被动检测并阻断全加密流量。GFW这一新添的审查能力影响到一大批流行的翻墙协议，包括但不限于Shadowsocks、VMess和Obfs4。虽然GFW长期以来一直采用<em>主动探测</em>来识别此类协议，但这次是第一次有关于采用纯<em>被动检测</em>来识别全加密流量的报告。</p>
-<p>Tschantz等人将混淆翻墙流量的方法分为两类：**隐写(steganography)和多态(polymorphism)**。</p>
+<p>Tschantz等人将混淆翻墙流量的方法分为两类：<strong>隐写(steganography)</strong> 和 <b>多态(polymorphism)</b>。</p>
 <p><strong>隐写代理的目标是使翻墙流量看起来像应该被允许的流量；多态性的目标是使翻墙流量看起来不像应该被禁止的流量</strong>。</p>
-<h3 id="隐写"><a href="#隐写" class="headerlink" title="隐写"></a>隐写</h3><p>实现隐写术的两种最常见的方法是**模仿(mimicking)和隧道传输(tunneling)**，让混淆协议的指纹和正常协议完全一致，从而避免基于协议指纹的检测和封锁。<br>但这种方式有根本性的缺陷，即使使用隧道传输，翻墙软件的设计者也需要复杂的额外操作。</p>
+<h3 id="隐写"><a href="#隐写" class="headerlink" title="隐写"></a>隐写</h3><p>实现隐写术的两种最常见的方法是<strong>模仿(mimicking)</strong> 和 <b>隧道传输(tunneling)</b>，让混淆协议的指纹和正常协议完全一致，从而避免基于协议指纹的检测和封锁。<br>但这种方式有根本性的缺陷，即使使用隧道传输，翻墙软件的设计者也需要复杂的额外操作。</p>
 <p>在2012年开始，GFW部署了深度包检测系统（详见上文<a href="#%E6%B7%B1%E5%BA%A6%E5%8C%85%E6%A3%80%E6%B5%8B">深度包检测</a>），这使基于隐写的协议基本都失效了。因为只要进行额外操作，就会留下痕迹，为了避免这个缺陷，现在活下来的流行软件都选择了多态设计。</p>
 <h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>实现多态性的一个常见方法是：<strong>从连接中的第一个数据包开始，就对其有效载荷进行完全加密</strong>。因为没有任何明文或固定的包头结构指纹，所以GFW没办法简单地使用正则表达式或通过寻找流量中的特定模式来识别代理流量。</p>
 <p>这种设计在2009年首次被引入Obfuscated OpenSSH中。此后，Obfsproxy、Shadowsocks、Outline、VMess、ScrambleSuit、Obfs4都采用了这种设计。Geph4、Lantern、Psiphon3和Conjure也部分采用这种设计。</p>
