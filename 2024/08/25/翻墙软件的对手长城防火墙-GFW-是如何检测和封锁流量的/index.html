@@ -18,33 +18,33 @@
   
     <meta name="description" content="背景介绍长城防火墙  防火长城（英语：Great Firewall，GFW），中国国家防火墙，或简称为墙、防火墙等，中国网信办称其为数据跨境安全网关，是该国政府过滤国际互联网出口内容的软硬件系统集合。防火长城不是中国特有的一个专门单位，而是由分散部门的各服务器和路由器等设备，加上相关公司的应用程序构成，其监控所有经过国际网关的通讯，对认为不符合中国官方要求的传输内容，进行干扰、阻断、屏蔽。由于中国">
 <meta property="og:type" content="article">
-<meta property="og:title" content="长城防火墙(GFW)是如何检测和封锁流量的">
-<meta property="og:url" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/index.html">
+<meta property="og:title" content="翻墙软件的对手长城防火墙(GFW)是如何检测和封锁流量的">
+<meta property="og:url" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/index.html">
 <meta property="og:site_name" content="星宇博客">
 <meta property="og:description" content="背景介绍长城防火墙  防火长城（英语：Great Firewall，GFW），中国国家防火墙，或简称为墙、防火墙等，中国网信办称其为数据跨境安全网关，是该国政府过滤国际互联网出口内容的软硬件系统集合。防火长城不是中国特有的一个专门单位，而是由分散部门的各服务器和路由器等设备，加上相关公司的应用程序构成，其监控所有经过国际网关的通讯，对认为不符合中国官方要求的传输内容，进行干扰、阻断、屏蔽。由于中国">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/1.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/2.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/3.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/4.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/5.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/6.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/7.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/8.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/9.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/10.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/1.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/2.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/3.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/4.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/5.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/6.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/7.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/8.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/9.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/10.png">
 <meta property="article:published_time" content="2024-08-25T07:51:26.000Z">
-<meta property="article:modified_time" content="2024-08-26T15:39:39.314Z">
+<meta property="article:modified_time" content="2024-08-27T10:38:10.166Z">
 <meta property="article:author" content="Thanatos">
 <meta property="article:tag" content="GFW">
 <meta property="article:tag" content="翻墙">
 <meta property="article:tag" content="协议">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://blog.luckysix.cc/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/1.png">
+<meta name="twitter:image" content="http://blog.luckysix.cc/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/1.png">
   
   
   
-  <title>长城防火墙(GFW)是如何检测和封锁流量的 - 星宇博客</title>
+  <title>翻墙软件的对手长城防火墙(GFW)是如何检测和封锁流量的 - 星宇博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -210,7 +210,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="长城防火墙(GFW)是如何检测和封锁流量的"></span>
+            <span id="subtitle" data-typed-text="翻墙软件的对手长城防火墙(GFW)是如何检测和封锁流量的"></span>
           
         </div>
 
@@ -281,7 +281,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">长城防火墙(GFW)是如何检测和封锁流量的</h1>
+            <h1 id="seo-header">翻墙软件的对手长城防火墙(GFW)是如何检测和封锁流量的</h1>
             
             
               <div class="markdown-body">
@@ -315,13 +315,13 @@
 <li><p>SMTP协议。GFW不仅可以检测邮件的发送人（MAIL FROM）和收件人(RCPT TO)，还可以检测邮件全文内容中的关键字，fqrouter作者将这称为“深包中的深包检测”。</p>
 </li>
 </ul>
-<p><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/1.png" srcset="/img/loading.gif" lazyload alt="https://fqrouter.tumblr.com/post/43400982633/%E8%AF%A6%E8%BF%B0gfw%E5%AF%B9smtp%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%B8%89%E7%A7%8D%E5%B0%81%E9%94%81%E6%89%8B%E6%B3%95"></p>
+<p><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/1.png" srcset="/img/loading.gif" lazyload alt="https://fqrouter.tumblr.com/post/43400982633/%E8%AF%A6%E8%BF%B0gfw%E5%AF%B9smtp%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%B8%89%E7%A7%8D%E5%B0%81%E9%94%81%E6%89%8B%E6%B3%95"></p>
 <ul>
 <li>TLS协议。早期TLS版本中，服务器握手响应，包括证书，是未被加密的，GFW可以嗅探它而得知访问站点，自TLS版本1.3开始，ServerHello之后的握手信息，包括站点证书，也会被加密后传输，一般可以认为能防止对证书信息的检测；另外，SNI是TLS的一个扩展协议，该协议下，客户端在握手过程开始时告诉服务器其连接的域名，以便运作多个HTTPS网站的服务器选择并提供对应证书。而该扩展也未被加密。</li>
 </ul>
 <h2 id="DNS污染"><a href="#DNS污染" class="headerlink" title="DNS污染"></a>DNS污染</h2><p><strong>DNS污染</strong>或<strong>网域服务器缓存污染（DNS cache pollution）</strong>，是指由于GFW自动执行DNS劫持攻击导致DNS服务器缓存了错误记录的现象。而域名服务器缓存投毒（DNS cache poisoning）和DNS缓存投毒指由GFW执行的DNS劫持攻击，若递归DNS解析器查询上游时收到错误回复，所有下游也会受影响。</p>
-<p>等待到深度包检测章节中的“和处于域名黑名单中的相匹配”的域名后，GFW会向查询者注入虚假DNS回复，比真的更早到达。<br><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/2.png" srcset="/img/loading.gif" lazyload alt="GFW向查询pornhub.com的DNS请求注入伪造回复"><br><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/3.png" srcset="/img/loading.gif" lazyload alt="A记录为早已被污染的IP"><br><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/4.png" srcset="/img/loading.gif" lazyload alt="Dropbox公司">  </p>
-<p><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/5.png" srcset="/img/loading.gif" lazyload alt="真实的DNS记录"><br><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/6.png" srcset="/img/loading.gif" lazyload alt="Reflected Networks, Inc."><br>由于通常的域名查询没有任何认证机制，而且域名查询通常基于的UDP协议是无连接不可靠的协议，查询者无法验证返回结果的正确性，客户端接受其伪造回复，并尝试连接其中的IP，结果往往是超时，或者出现无效TLS证书之警告。而其对TCP协议的查询则使用TCP重置攻击（详见下文<a href="#TCP%E9%87%8D%E7%BD%AE%E6%94%BB%E5%87%BB">TCP重置攻击</a>）来阻止获得任何正确结果。</p>
+<p>等待到深度包检测章节中的“和处于域名黑名单中的相匹配”的域名后，GFW会向查询者注入虚假DNS回复，比真的更早到达。<br><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/2.png" srcset="/img/loading.gif" lazyload alt="GFW向查询pornhub.com的DNS请求注入伪造回复"><br><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/3.png" srcset="/img/loading.gif" lazyload alt="A记录为早已被污染的IP"><br><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/4.png" srcset="/img/loading.gif" lazyload alt="Dropbox公司">  </p>
+<p><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/5.png" srcset="/img/loading.gif" lazyload alt="真实的DNS记录"><br><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/6.png" srcset="/img/loading.gif" lazyload alt="Reflected Networks, Inc."><br>由于通常的域名查询没有任何认证机制，而且域名查询通常基于的UDP协议是无连接不可靠的协议，查询者无法验证返回结果的正确性，客户端接受其伪造回复，并尝试连接其中的IP，结果往往是超时，或者出现无效TLS证书之警告。而其对TCP协议的查询则使用TCP重置攻击（详见下文<a href="#TCP%E9%87%8D%E7%BD%AE%E6%94%BB%E5%87%BB">TCP重置攻击</a>）来阻止获得任何正确结果。</p>
 <p>此种行为自2002年开始以来有相当明确的特征。</p>
 <ul>
 <li><p>伪造回复所包含的IP地址或者是保留地址、或者是固定中国境外IP集合中的一个，这些地址通常已经被屏蔽。</p>
@@ -330,10 +330,10 @@
 </li>
 </ul>
 <p>这种注入是双向的，不仅是在中国境内查询境外DNS时、境外的DNS查询途经中国时也会出现，这导致许多国外递归DNS服务器的缓存被污染。</p>
-<p>根据2014年的研究（详见 <a target="_blank" rel="noopener" href="https://web.archive.org/web/20150530001516/http://www.solidot.org/story?sid=41829">WinterIsComing.《分析防火长城的DNS审查》</a>），长城防火墙的一个计算集群有360个节点，每个节点的平均处理速度是每秒2800个DNS包。<br><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/7.png" srcset="/img/loading.gif" lazyload alt="solidot"></p>
+<p>根据2014年的研究（详见 <a target="_blank" rel="noopener" href="https://web.archive.org/web/20150530001516/http://www.solidot.org/story?sid=41829">WinterIsComing.《分析防火长城的DNS审查》</a>），长城防火墙的一个计算集群有360个节点，每个节点的平均处理速度是每秒2800个DNS包。<br><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/7.png" srcset="/img/loading.gif" lazyload alt="solidot"></p>
 <p>对于加密DNS，如DoT和DoH，GFW使用基于IP端口和基于SNI的封锁。最早的封锁针对Cloudflare提供的加密DNS服务，据说其一个IP地址1.1.1.1和域名cloudflare-dns.com在2020年末被发现封锁，但是截至目前，测试发现该IP和域名已被封锁。</p>
 <h2 id="TCP重置攻击"><a href="#TCP重置攻击" class="headerlink" title="TCP重置攻击"></a>TCP重置攻击</h2><p>重置（reset）是传输控制协议（TCP）的一种消息，例如服务器端在没有客户端请求的端口或者其它连接信息不符时，系统的TCP协议栈就会给客户端回复一个重置通知消息，该功能本来用于应对例如服务器意外重启等情况，而GFW阻止TCP连接的技术实际上就是<strong>比连接双方更快地发送连接重置消息，使连接双方以为对方终止了连接</strong>。</p>
-<p>HTTP、SMTP、HTTPS等许多应用协议都基于TCP，GFW对它们也都使用此种攻击方法。<br><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/8.png" srcset="/img/loading.gif" lazyload alt="Connection reset error of Chromium"><br><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/9.png" srcset="/img/loading.gif" lazyload alt="GFW检测到SNI包含封锁域名即注入伪造的TCP重置包"><br><img src="/2024/08/25/%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/10.png" srcset="/img/loading.gif" lazyload alt="GFW发送的重置数据包"></p>
+<p>HTTP、SMTP、HTTPS等许多应用协议都基于TCP，GFW对它们也都使用此种攻击方法。<br><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/8.png" srcset="/img/loading.gif" lazyload alt="Connection reset error of Chromium"><br><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/9.png" srcset="/img/loading.gif" lazyload alt="GFW检测到SNI包含封锁域名即注入伪造的TCP重置包"><br><img src="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/10.png" srcset="/img/loading.gif" lazyload alt="GFW发送的重置数据包"></p>
 <p>GFW每次会注入带有一个RST选项的“一型”和多个带有RST&#x2F;ACK选项的“二型”数据包，这被认为是来自两种同时部署的审查设备。一型IPID为0，具有随机的窗口尺寸，没有设置“不分片”选项；二型则有周期性增加的TTL值和窗口尺寸，并且设置了“不分片”。</p>
 <h2 id="IP封锁"><a href="#IP封锁" class="headerlink" title="IP封锁"></a>IP封锁</h2><p>GFW主要采用路由扩散技术封锁特定IP地址，也就是通过将需要拦截的IP地址配置为空路由、黑洞设备或特别配置的自治系统上，在这些黑洞服务器上可以什么也不做，或者对这些报文进行分析和统计，获取更多的信息，甚至可以做出虚假回应。<br>正常的情况下，静态路由是由管理员根据网络拓扑或是基于其它目的而给出的一条路由，所以这条路由是正确的情况下，可以引导路由器把报文转发到正确的目的地。而GFW的路由扩散技术中使用的静态路由是一条有意配置错误的路由，其目的是<strong>为了把本来是发往某个IP地址的报文引导到一个“黑洞服务器”上</strong>，而不是把它们转发到正确目的地。通过动态路由协议的路由重分发功能，这些错误的路由信息可以发布到整个网络。</p>
 <h2 id="主动探测"><a href="#主动探测" class="headerlink" title="主动探测"></a>主动探测</h2><p>自2011年10月以来（详见 <a target="_blank" rel="noopener" href="https://web.archive.org/web/20160326105318/http://internet.solidot.org/article.pl?sid=11/11/21/0128217">blackhat.《中国刺探加密连接测试新屏蔽方式》</a>），防火长城通过主动探测（Active probing）识别翻墙服务器，并随后将其封锁。其主要针对以下目标。</p>
@@ -416,8 +416,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>长城防火墙(GFW)是如何检测和封锁流量的</div>
-      <div>http://blog.luckysix.cc/2024/08/25/长城防火墙-GFW-是如何检测和封锁流量的/</div>
+      <div>翻墙软件的对手长城防火墙(GFW)是如何检测和封锁流量的</div>
+      <div>http://blog.luckysix.cc/2024/08/25/翻墙软件的对手长城防火墙-GFW-是如何检测和封锁流量的/</div>
     </div>
     <div class="license-meta">
       
