@@ -16,31 +16,24 @@
   <meta name="author" content="Thanatos">
   <meta name="keywords" content="">
   
-    <meta name="description" content="起因最近在忙着弄Hexo，经常收到edusrc上新礼品的通知，晚上闲的没事看看能不能投机取巧刷几分 寻找目标翻了一下最近几天的漏洞列表，发现大部分都是大佬用0day和通杀刷分 突然我发现了目标，说不定可以捡个漏 这种落单的乡镇中学的官网，一般只要不是使用的建站系统，都有洞可挖 打开fofa，直接复制学校名搜索一共四个资产，其中最后学校官网为第三方系统搭建，为了快速刷分直接放弃 开始挖洞 首先测试一">
+    <meta name="description" content="他会解二次函数,但他不知道医院流程怎么走，社保医保怎么弄。   “我眼镜已经500多度了”“那都是玩手机玩的”“为中华之崛起而读书”“这章不考，不讲”“我发烧了”“请假会落下课程进度的”“妈妈，这件事我不知道该怎么办”“你上学学了什么”“爷爷去世为什么不跟我讲”“我怕影响你学习”“蛋糕好好吃”“好好学习你可以天天都可以吃”   中考上岸 高考上岸 考研上岸 考编上岸,读书也不过是从这个水坑爬上岸，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一次歪打正着的edusrc挖洞">
-<meta property="og:url" content="http://blog.luckysix.cc/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/index.html">
+<meta property="og:title" content="教育缺失：从知识到生活的断层[转]">
+<meta property="og:url" content="http://blog.luckysix.cc/2023/12/03/%E6%95%99%E8%82%B2%E7%BC%BA%E5%A4%B1%EF%BC%9A%E4%BB%8E%E7%9F%A5%E8%AF%86%E5%88%B0%E7%94%9F%E6%B4%BB%E7%9A%84%E6%96%AD%E5%B1%82/index.html">
 <meta property="og:site_name" content="星宇博客">
-<meta property="og:description" content="起因最近在忙着弄Hexo，经常收到edusrc上新礼品的通知，晚上闲的没事看看能不能投机取巧刷几分 寻找目标翻了一下最近几天的漏洞列表，发现大部分都是大佬用0day和通杀刷分 突然我发现了目标，说不定可以捡个漏 这种落单的乡镇中学的官网，一般只要不是使用的建站系统，都有洞可挖 打开fofa，直接复制学校名搜索一共四个资产，其中最后学校官网为第三方系统搭建，为了快速刷分直接放弃 开始挖洞 首先测试一">
+<meta property="og:description" content="他会解二次函数,但他不知道医院流程怎么走，社保医保怎么弄。   “我眼镜已经500多度了”“那都是玩手机玩的”“为中华之崛起而读书”“这章不考，不讲”“我发烧了”“请假会落下课程进度的”“妈妈，这件事我不知道该怎么办”“你上学学了什么”“爷爷去世为什么不跟我讲”“我怕影响你学习”“蛋糕好好吃”“好好学习你可以天天都可以吃”   中考上岸 高考上岸 考研上岸 考编上岸,读书也不过是从这个水坑爬上岸，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/1.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/2.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/3.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/4.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/5.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/6.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/7.png">
-<meta property="article:published_time" content="2024-04-18T16:24:44.000Z">
-<meta property="article:modified_time" content="2024-04-18T17:17:41.254Z">
+<meta property="article:published_time" content="2023-12-02T16:05:14.000Z">
+<meta property="article:modified_time" content="2024-12-02T16:17:10.063Z">
 <meta property="article:author" content="Thanatos">
-<meta property="article:tag" content="sql注入">
-<meta property="article:tag" content="edusrc">
+<meta property="article:tag" content="成绩">
+<meta property="article:tag" content="中考">
+<meta property="article:tag" content="分析">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://blog.luckysix.cc/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/1.png">
   
   
   
-  <title>一次歪打正着的edusrc挖洞 - 星宇博客</title>
+  <title>教育缺失：从知识到生活的断层[转] - 星宇博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -206,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="一次歪打正着的edusrc挖洞"></span>
+            <span id="subtitle" data-typed-text="教育缺失：从知识到生活的断层[转]"></span>
           
         </div>
 
@@ -217,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-19 00:24" pubdate>
-          2024年4月19日 凌晨
+        <time datetime="2023-12-03 00:05" pubdate>
+          2023年12月3日 凌晨
         </time>
       </span>
     
@@ -229,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          320 字
+          654 字
         
       </span>
     
@@ -240,7 +233,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -277,29 +270,27 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">一次歪打正着的edusrc挖洞</h1>
+            <h1 id="seo-header">教育缺失：从知识到生活的断层[转]</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>最近在忙着弄Hexo，经常收到edusrc上新礼品的通知，晚上闲的没事看看能不能投机取巧刷几分</p>
-<h1 id="寻找目标"><a href="#寻找目标" class="headerlink" title="寻找目标"></a>寻找目标</h1><p>翻了一下最近几天的漏洞列表，发现大部分都是大佬用0day和通杀刷分</p>
-<p>突然我发现了目标，说不定可以捡个漏<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/1.png" srcset="/img/loading.gif" lazyload alt="1"></p>
-<p>这种落单的乡镇中学的官网，一般只要不是使用的建站系统，都有洞可挖</p>
-<p>打开fofa，直接复制学校名搜索<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/2.png" srcset="/img/loading.gif" lazyload alt="2"><br>一共四个资产，其中最后学校官网为第三方系统搭建，为了快速刷分直接放弃</p>
-<h1 id="开始挖洞"><a href="#开始挖洞" class="headerlink" title="开始挖洞"></a>开始挖洞</h1><p><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/3.png" srcset="/img/loading.gif" lazyload alt="3"></p>
-<p>首先测试一波最直观的SQL注入漏洞</p>
-<p>打开我们最喜欢的burpsuite，启动xia sql插件</p>
-<p>复制资产URL，填到bp内置浏览器里</p>
-<p>然后无脑瞎点，发现用户注册页面有一个下拉选择学校列表的功能</p>
-<p>直觉告诉我这里有搞头，丢插件测试一波</p>
-<p><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/4.png" srcset="/img/loading.gif" lazyload alt="4"></p>
-<p>继续无脑，sqlmap启动！</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">python sqlmap<span class="hljs-selector-class">.py</span> -r <span class="hljs-number">1</span><span class="hljs-selector-class">.txt</span> <span class="hljs-attr">--random-agent</span> <span class="hljs-attr">--threads</span> <span class="hljs-number">10</span> <span class="hljs-attr">--batch</span><br></code></pre></td></tr></table></figure>
-<p>爆金币啦<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/5.png" srcset="/img/loading.gif" lazyload alt="5"></p>
-<p>直接拿下，不过可惜不是dba<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/6.png" srcset="/img/loading.gif" lazyload alt="6"></p>
-<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>还剩下2个站，依次点开看了下都是一样的，直接重复又拿到两个sql注入</p>
-<p>edusrc捡漏刷分成功*3<br><img src="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/7.png" srcset="/img/loading.gif" lazyload alt="7"></p>
+                <p>他会解二次函数,<br>但他不知道医院流程怎么走，<br>社保医保怎么弄。  </p>
+<p>“我眼镜已经500多度了”<br>“那都是玩手机玩的”<br>“为中华之崛起而读书”<br>“这章不考，不讲”<br>“我发烧了”<br>“请假会落下课程进度的”<br>“妈妈，这件事我不知道该怎么办”<br>“你上学学了什么”<br>“爷爷去世为什么不跟我讲”<br>“我怕影响你学习”<br>“蛋糕好好吃”<br>“好好学习你可以天天都可以吃”  </p>
+<p>中考上岸 高考上岸 考研上岸 考编上岸,<br>读书也不过是从这个水坑爬上岸，<br>再跳进另一个水坑，<br>不断地再上岸。</p>
+<p>十年前，他在地理书上写下,<br><strong>此地的优势在于丰富且廉价的劳动力；</strong><br>十年后，他奔波在上班的路上，<br>听到背后隐隐约约有风声，<br>他停下来转过身去<br><strong>一颗来自十年前的子弹正中眉心。</strong></p>
+<blockquote>
+<p>「先生，吃人的方式又变了」  </p>
+</blockquote>
+<p><strong>考不上会死吗？</strong><br><strong>考不上真的会死</strong>  </p>
+<p>会死在自卑里<br>会死在亲戚的闲言碎语里<br>死在父母失望的眼神里<br>死在自己的愧疚里<br>死在浪费的时间和金钱里  </p>
+<p><strong>可考的上就不会死吗?</strong><br>死在没有目标的失途中<br>死在整天整夜的迷茫中<br>死在清醒的颓废中<br>或者早就死在了故乡柿子<br>又或者是那棵杨梅树下的秋千上<br>死在了童年中的某个夏天  </p>
+<p>老师知道他的薄弱学科，<br>家人清楚他的成绩排名，<br>却唯独没人知道他是感情上嗷嗷待哺的孩子<br>从来没人教他友谊破裂、家庭不和睦、情感受挫、亲人离世、宠物生病、遇<br>到创伤、被欺凌、抑郁焦虑、孤独、寂寞、压力大时怎么办。</p>
+<blockquote>
+<p>「先生，教育难道是一场慢性的炎症吗?」  </p>
+</blockquote>
+<p>讲台下的孩子一届比一届安静，<br>班上的男生很少去追求身边的女孩。<br>那种属于年轻人本能的粗粝和莽撞，<br>那种不管不顾、奋不顾身的蓬勃活力,<br>仿佛被一条无形的绳索牵住。<br>中小学时服下的猛药,<br>到大学时代终于结下了不思考不主动的恶果。  </p>
+<p>学生内心的疲惫构成精神生活的底色<br>现在的学生或许始终缺少「三堂课」<br><strong>性的教育 爱的教育 死亡的教育</strong><br>这三种教育分别对应<br><strong>身体的完整 精神的充沛 生命的价值</strong>  </p>
 
                 
               </div>
@@ -318,7 +309,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%BC%8F%E6%B4%9E/" class="category-chain-item">漏洞</a>
+  <a href="/categories/%E9%9A%8F%E7%AC%94/" class="category-chain-item">随笔</a>
   
   
 
@@ -333,9 +324,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/sql%E6%B3%A8%E5%85%A5/" class="print-no-link">#sql注入</a>
+        <a href="/tags/%E6%88%90%E7%BB%A9/" class="print-no-link">#成绩</a>
       
-        <a href="/tags/edusrc/" class="print-no-link">#edusrc</a>
+        <a href="/tags/%E4%B8%AD%E8%80%83/" class="print-no-link">#中考</a>
+      
+        <a href="/tags/%E5%88%86%E6%9E%90/" class="print-no-link">#分析</a>
       
     </div>
   
@@ -347,8 +340,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>一次歪打正着的edusrc挖洞</div>
-      <div>http://blog.luckysix.cc/2024/04/19/一次歪打正着的edusrc挖洞/</div>
+      <div>教育缺失：从知识到生活的断层[转]</div>
+      <div>http://blog.luckysix.cc/2023/12/03/教育缺失：从知识到生活的断层/</div>
     </div>
     <div class="license-meta">
       
@@ -360,7 +353,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月19日</div>
+          <div>2023年12月3日</div>
         </div>
       
       
@@ -392,9 +385,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/" title="东北方言编程语言给我整乐了--滚犊子吧你整的啥输入啊？">
+                      <a href="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/" title="一次歪打正着的edusrc挖洞">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">东北方言编程语言给我整乐了--滚犊子吧你整的啥输入啊？</span>
+                        <span class="hidden-mobile">一次歪打正着的edusrc挖洞</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -402,8 +395,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/03/%E6%95%99%E8%82%B2%E7%BC%BA%E5%A4%B1%EF%BC%9A%E4%BB%8E%E7%9F%A5%E8%AF%86%E5%88%B0%E7%94%9F%E6%B4%BB%E7%9A%84%E6%96%AD%E5%B1%82/" title="教育缺失：从知识到生活的断层[转]">
-                        <span class="hidden-mobile">教育缺失：从知识到生活的断层[转]</span>
+                      <a href="/2023/10/20/LoveCards%E8%A1%A8%E7%99%BD%E5%A2%99SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/" title="LoveCards表白墙SQL注入漏洞">
+                        <span class="hidden-mobile">LoveCards表白墙SQL注入漏洞</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

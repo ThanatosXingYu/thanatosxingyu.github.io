@@ -224,6 +224,71 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" target="_self">
+          记一次对福州市某区网上阅卷系统的渗透测试
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" target="_self">
+        <div>
+          开始挖洞刚拿到ip，直接访问提示timed out，加上https也是打不开 拿出nmap扫一下nmap -sV -v 183.xxx.xxx.xxx还可以，虽然有一大堆filtered，但是还是有两个端口可以 先试试8081，浏览器直接访问进manager页面，弱口令直接秒杀 使用命令把jsp一句话打包成war，然后deploy上传shell.jsp：  12345678910111213141
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-09-21 17:07" pubdate>
+              2024-09-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%BC%8F%E6%B4%9E/" class="category-chain-item">漏洞</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/edusrc/">#edusrc</a>
+            
+              <a href="/tags/JSP/">#JSP</a>
+            
+              <a href="/tags/tomcat/">#tomcat</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2024/08/25/%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AF%B9%E6%89%8B%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99-GFW-%E6%98%AF%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E6%B5%81%E9%87%8F%E7%9A%84/" target="_self">
           翻墙软件的对手长城防火墙(GFW)是如何检测和封锁流量的
         </a>
@@ -401,9 +466,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/ikun/">#ikun</a>
-            
               <a href="/tags/Python/">#Python</a>
+            
+              <a href="/tags/ikun/">#ikun</a>
             
               <a href="/tags/Github/">#Github</a>
             
@@ -793,72 +858,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Python/">#Python</a>
-            
               <a href="/tags/GitHub/">#GitHub</a>
             
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/" target="_self">
-          一次歪打正着的edusrc挖洞
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/" target="_self">
-        <div>
-          起因最近在忙着弄Hexo，经常收到edusrc上新礼品的通知，晚上闲的没事看看能不能投机取巧刷几分 寻找目标翻了一下最近几天的漏洞列表，发现大部分都是大佬用0day和通杀刷分 突然我发现了目标，说不定可以捡个漏 这种落单的乡镇中学的官网，一般只要不是使用的建站系统，都有洞可挖 打开fofa，直接复制学校名搜索一共四个资产，其中最后学校官网为第三方系统搭建，为了快速刷分直接放弃 开始挖洞 首先测试一
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-04-19 00:24" pubdate>
-              2024-04-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%BC%8F%E6%B4%9E/" class="category-chain-item">漏洞</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/sql%E6%B3%A8%E5%85%A5/">#sql注入</a>
-            
-              <a href="/tags/edusrc/">#edusrc</a>
+              <a href="/tags/Python/">#Python</a>
             
           </div>
         
