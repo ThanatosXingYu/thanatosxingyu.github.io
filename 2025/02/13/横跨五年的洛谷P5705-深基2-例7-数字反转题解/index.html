@@ -18,33 +18,26 @@
   <meta name="author" content="Thanatos">
   <meta name="keywords" content="">
   
-    <meta name="description" content="最近看到一个有意思的开源项目dongbei，主要功能就是使用东北话来编写代码。 按项目说明 “dongbei” 是一种以东北方言词汇为基础的编程语言，它填补了世界方言编程领域的空白。 这个定义整的可以，气势宏大，口号也很川普风： 学编程，就整东北浪！ Make dongbei Great Again !!! 项目开源地址：https:&#x2F;&#x2F;github.com&#x2F;zhanyong-wan&#x2F;dongbe">
+    <meta name="description" content="正好卡在2025年情人节前夕，突发奇想打开了许久未看的洛谷，想看看里面的算法题，然后发现了一道在几年前有多次提交记录的题P5705 【深基2.例7】数字反转   P5705 【深基2.例7】数字反转 题目描述输入一个不小于 $100$ 且小于 $1000$，同时包括小数点后一位的一个浮点数，例如 $123.4$ ，要求把这个数字翻转过来，变成 $4.321$ 并输出。 输入格式一行一个浮点数 输出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="东北方言编程语言给我整乐了--滚犊子吧你整的啥输入啊？">
-<meta property="og:url" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/index.html">
+<meta property="og:title" content="横跨五年的&quot;洛谷P5705[深基2.例7]数字反转&quot;题解">
+<meta property="og:url" content="http://blog.luckysix.cc/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="星宇博客">
-<meta property="og:description" content="最近看到一个有意思的开源项目dongbei，主要功能就是使用东北话来编写代码。 按项目说明 “dongbei” 是一种以东北方言词汇为基础的编程语言，它填补了世界方言编程领域的空白。 这个定义整的可以，气势宏大，口号也很川普风： 学编程，就整东北浪！ Make dongbei Great Again !!! 项目开源地址：https:&#x2F;&#x2F;github.com&#x2F;zhanyong-wan&#x2F;dongbe">
+<meta property="og:description" content="正好卡在2025年情人节前夕，突发奇想打开了许久未看的洛谷，想看看里面的算法题，然后发现了一道在几年前有多次提交记录的题P5705 【深基2.例7】数字反转   P5705 【深基2.例7】数字反转 题目描述输入一个不小于 $100$ 且小于 $1000$，同时包括小数点后一位的一个浮点数，例如 $123.4$ ，要求把这个数字翻转过来，变成 $4.321$ 并输出。 输入格式一行一个浮点数 输出">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/1.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/2.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/3.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/4.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/5.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/6.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/7.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/8.png">
-<meta property="og:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/9.png">
-<meta property="article:published_time" content="2024-05-18T14:53:26.000Z">
-<meta property="article:modified_time" content="2024-05-21T15:11:33.576Z">
+<meta property="og:image" content="http://blog.luckysix.cc/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/1.png">
+<meta property="og:image" content="http://blog.luckysix.cc/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/2.png">
+<meta property="article:published_time" content="2025-02-13T15:57:44.000Z">
+<meta property="article:modified_time" content="2025-02-28T08:47:34.300Z">
 <meta property="article:author" content="Thanatos">
-<meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="Python">
+<meta property="article:tag" content="洛谷">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://blog.luckysix.cc/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/1.png">
+<meta name="twitter:image" content="http://blog.luckysix.cc/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/1.png">
   
   
   
-  <title>东北方言编程语言给我整乐了--滚犊子吧你整的啥输入啊？ - 星宇博客</title>
+  <title>横跨五年的&#34;洛谷P5705[深基2.例7]数字反转&#34;题解 - 星宇博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -210,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="东北方言编程语言给我整乐了--滚犊子吧你整的啥输入啊？"></span>
+            <span id="subtitle" data-typed-text="横跨五年的&#34;洛谷P5705[深基2.例7]数字反转&#34;题解"></span>
           
         </div>
 
@@ -221,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-18 22:53" pubdate>
-          2024年5月18日 晚上
+        <time datetime="2025-02-13 23:57" pubdate>
+          2025年2月13日 晚上
         </time>
       </span>
     
@@ -233,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          712 字
+          1k 字
         
       </span>
     
@@ -244,7 +237,7 @@
         
         
         
-          6 分钟
+          9 分钟
         
       </span>
     
@@ -281,54 +274,63 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">东北方言编程语言给我整乐了--滚犊子吧你整的啥输入啊？</h1>
+            <h1 id="seo-header">横跨五年的&#34;洛谷P5705[深基2.例7]数字反转&#34;题解</h1>
             
             
               <div class="markdown-body">
                 
-                <p>最近看到一个有意思的开源项目<strong>dongbei</strong>，主要功能就是使用东北话来编写代码。</p>
-<p>按项目说明 “dongbei” 是一种以东北方言词汇为基础的编程语言，它填补了世界方言编程领域的空白。</p>
-<p>这个定义整的可以，气势宏大，口号也很川普风：</p>
-<p>学编程，就整东北浪！</p>
-<p><em><strong>Make dongbei Great Again !!!</strong></em></p>
-<p>项目开源地址：<a target="_blank" rel="noopener" href="https://github.com/zhanyong-wan/dongbei">https://github.com/zhanyong-wan/dongbei</a></p>
-<p>该项目基于 Python3 ，所以安装起来也特别简单:</p>
-<p><code>pip3 install dongbei-lang</code></p>
-<p>执行以上命令出现以下信息就说明安装成功，可以开始使用了：</p>
-<p><img src="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/1.png" srcset="/img/loading.gif" lazyload alt="1"></p>
-<p>接下来就让我们来试试怎么用东北话写出招笑的小代码，首先创建一个 test.dongbei，文件后缀名设置为 .dongbei 可以更容易分辨，然后把以下代码复制到 test.dongbei 文件中：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env dongbei</span><br><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><br><span class="hljs-comment"># 这是一个 dongbei 语言程序的例子。</span><br><span class="hljs-comment"># 所有 # 后面的字符都是注释。</span><br><br><span class="hljs-comment"># 演示如何打印消息。</span><br><br>嘀咕：“唉呀，这嘎哒真他妈那啥！”。<br></code></pre></td></tr></table></figure>
+                <p>正好卡在2025年情人节前夕，突发奇想打开了许久未看的洛谷，想看看里面的算法题，然后发现了一道在几年前有多次提交记录的题<br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5705"><strong>P5705 【深基2.例7】数字反转</strong></a> </p>
+<blockquote>
+<h1 id="P5705-【深基2-例7】数字反转"><a href="#P5705-【深基2-例7】数字反转" class="headerlink" title="P5705 【深基2.例7】数字反转"></a>P5705 【深基2.例7】数字反转</h1></blockquote>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个不小于 $100$ 且小于 $1000$，同时包括小数点后一位的一个浮点数，例如 $123.4$ ，要求把这个数字翻转过来，变成 $4.321$ 并输出。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一行一个浮点数</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一行一个浮点数</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">123</span>.<span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
 
-<p>接下来执行以下代码：</p>
-<p><code>dongbei test.dongbei</code></p>
-<p>就可以看到输出结果：<strong>唉呀，这嘎哒真他妈那啥！</strong>  </p>
-<p>另外你如果想东北人唠嗑，刚好你身边又没有东北朋友，这时候就可以开启它的唠嗑模式，输入 dongbei 命令进入唠嗑模式：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># dongbei</span><br>你要跟 dongbei 大哥唠嗑啊？开整吧！要是一句话太长咧你就用\拆开唠。<br>你瞅啥？<br></code></pre></td></tr></table></figure>
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">4</span>.<span class="hljs-number">321</span><br></code></pre></td></tr></table></figure>
 
-<p>这个唠嗑模式其实就是命令行模式，看下一个测试实例：</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs livescript">你要跟 dongbei 大哥唠嗑啊？开整吧！要是一句话太长咧你就用<span class="hljs-string">\拆开唠。</span><br>你瞅啥？<span class="hljs-number">2</span> 加 <span class="hljs-number">2</span><br><span class="hljs-number">4</span><br>你瞅啥？瞅你咋地<br>完犊子了！<br></code></pre></td></tr></table></figure>
+<h1 id="2020年4月的题解"><a href="#2020年4月的题解" class="headerlink" title="2020年4月的题解"></a>2020年4月的题解</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Python">num = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>())<br>x = <span class="hljs-built_in">int</span>(num)<br>a,b,c = <span class="hljs-built_in">str</span>(x)<br>da = num - x<br>db = <span class="hljs-built_in">round</span>(da,<span class="hljs-number">1</span>)<br>d = <span class="hljs-built_in">int</span>(db*<span class="hljs-number">10</span>)<br>end = <span class="hljs-built_in">str</span>(d)+<span class="hljs-string">&quot;.&quot;</span>+<span class="hljs-built_in">str</span>(c)+<span class="hljs-built_in">str</span>(b)+<span class="hljs-built_in">str</span>(a)<br><span class="hljs-built_in">print</span>(end)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/2.png" srcset="/img/loading.gif" lazyload alt="2"></p>
-<p>作为新编程语言，很多编辑器默认都不支持代码高亮功能，刚开始学习 VS Code 的代码显示如下：</p>
-<p><img src="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/3.png" srcset="/img/loading.gif" lazyload alt="3"></p>
-<p>非常不方便学习，没关系了，VS Code 上可以安装 dongbei  语言的高亮插件：</p>
-<p><img src="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/4.png" srcset="/img/loading.gif" lazyload alt="4"></p>
-<p>安装完成后，回到我们之前的测试代码，完美高亮：</p>
-<p><img src="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/5.png" srcset="/img/loading.gif" lazyload alt="5"></p>
-<p>我们再让他试试基本的算术运算：</p>
-<p><img src="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/6.png" srcset="/img/loading.gif" lazyload alt="6"></p>
-<p>输出结果：</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs diff">263<br>10<br>50.0<br>2.0<br><span class="hljs-deletion">-50.0</span><br></code></pre></td></tr></table></figure>
+<p><em>不知道当时的自己是处于什么精神状态写下来这段屎….</em></p>
+<p>直接拉出来DeepSeek解释吧：  </p>
+<blockquote>
+<p>这段代码的目的是将一个浮点数进行处理，生成一个新的字符串。具体步骤如下：</p>
+<ol>
+<li><strong>输入处理</strong>：用户输入一个浮点数。</li>
+<li><strong>整数部分提取</strong>：将浮点数转换为整数，提取整数部分。</li>
+<li><strong>小数部分提取</strong>：用浮点数减去整数部分，得到小数部分。</li>
+<li><strong>整数部分反转</strong>：将整数部分转换为字符串并反转。</li>
+<li><strong>小数部分处理</strong>：将小数部分四舍五入到一位小数，并提取小数点后的第一位数字。</li>
+<li><strong>结果拼接</strong>：将处理后的小数部分和反转后的整数部分拼接成一个新的字符串。</li>
+</ol>
+</blockquote>
+<p>转念一想，就这样提交上去肯定不行啊，所以我又在今天添加了新的题解</p>
+<h1 id="2025年2月的题解"><a href="#2025年2月的题解" class="headerlink" title="2025年2月的题解"></a>2025年2月的题解</h1><p>刚开始我是这样写的  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Python">num=<span class="hljs-built_in">list</span>(<span class="hljs-built_in">input</span>())<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(num)):<br>    <span class="hljs-built_in">print</span>(num[-<span class="hljs-number">1</span>-i],end=<span class="hljs-string">&quot;&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>满怀信心的提交，期待看到绿色的AC<br>结果只能WA的一声哭出来<br><img src="/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/1.png" srcset="/img/loading.gif" lazyload alt="1"></p>
+<p>经历了各种微调，都没发现问题所在，上头的我直接用C怼了上去  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">char</span> a,b,c,d;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%c%c%c.%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c.%c%c%c&quot;</span>,d,c,b,a);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>接下来我们再整个复杂的《斐波那契数列》，代码如下：</p>
-<p><img src="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/7.png" srcset="/img/loading.gif" lazyload alt="7"></p>
-<p>测试输出结果如下：</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dns">瞅瞅<span class="hljs-number">0</span>的结果：<br>你整的啥输入啊？<br>瞅瞅<span class="hljs-number">15</span>的结果：<br><span class="hljs-number">1、1、2、3</span>、<span class="hljs-number">5、8、13、21</span>、<span class="hljs-number">34、55、89、144</span>、<span class="hljs-number">233、377</span>、<span class="hljs-number">610</span><br></code></pre></td></tr></table></figure>
-<p>目前来说这个开源项目一般也是仅供我们娱乐使用，真正实际应用看着也挺奇怪的，也许可能英文字母编程看习惯了？毕竟这几十年都是欧美主导世界。<br>什么时候等某人称霸中国了，让世界也来学学东北编程、文言文编程、四川话编程🤣</p>
-<p><img src="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/8.png" srcset="/img/loading.gif" lazyload alt="8"></p>
-<p><img src="/2024/05/18/%E4%B8%9C%E5%8C%97%E6%96%B9%E8%A8%80%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%BB%99%E6%88%91%E6%95%B4%E4%B9%90%E4%BA%86-%E6%BB%9A%E7%8A%8A%E5%AD%90%E5%90%A7%E4%BD%A0%E6%95%B4%E7%9A%84%E5%95%A5%E8%BE%93%E5%85%A5%E5%95%8A%EF%BC%9F/9.png" srcset="/img/loading.gif" lazyload alt="9"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/QGZEXvBryNbu6YYbfqPn0g">https://mp.weixin.qq.com/s/QGZEXvBryNbu6YYbfqPn0g</a>
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<p>接着有一瞬间感觉不对劲，为什么c用的是<code>%c</code><br>在重新阅读题解之后，我发现题目要求明确写了:<br><img src="/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/2.png" srcset="/img/loading.gif" lazyload alt="2">  </p>
+<blockquote>
+<p>输出格式<br>一行一个浮点数</p>
+</blockquote>
+<p>所以我把代码改成了  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Python">num = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">input</span>())<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(num)):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(num[-<span class="hljs-number">1</span> - i]))<br></code></pre></td></tr></table></figure>
+
+<p>不出预料的，<strong>Accepted</strong></p>
+<h1 id="进一步优化"><a href="#进一步优化" class="headerlink" title="进一步优化"></a>进一步优化</h1><p>既然已经成功 AC 了，接下来就要考虑如何让代码更简洁、优雅。本来我是打算参考题解中大佬的解法的，但是点进去翻找半天并没有Python的高级解法。<br>Python 作为一门强调简洁的语言，肯定能写出更短的版本。于是我开始琢磨——有没有办法减少循环，甚至去掉<code>list()</code>这个转换  </p>
+<p>首先，我想到 Python 字符串本身是可迭代的，不需要转换成 list 也能按索引访问。这样<code>num = list(input())</code>其实可以直接写成：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python">num = <span class="hljs-built_in">input</span>()<br></code></pre></td></tr></table></figure>
+<p>这样就少了一步转换操作 </p>
+<p>然后，<code>for i in range(len(num))</code>只是为了遍历<code>num</code>的每一位并倒序输出，其实 Python 早就有内置方法能更优雅地做到这一点，比如<code>[::-1]</code>这个切片操作，就可以直接反转字符串<br>于是，代码可以进一步缩短成这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>()[::-<span class="hljs-number">1</span>]))<br></code></pre></td></tr></table></figure>
+
+<p>其实我们还可以利用<strong>Lambda 函数</strong>和<strong>map</strong>让代码更 <del>牛逼</del>高级 一些  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python">(<span class="hljs-keyword">lambda</span> x: <span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(x[::-<span class="hljs-number">1</span>])))(<span class="hljs-built_in">input</span>())<br></code></pre></td></tr></table></figure>
+<p>这段代码的核心仍然是<code>x[::-1]</code>进行字符串反转，并用<code>float()</code>转换格式，最后用<code>lambda</code>使其成为匿名函数，直接处理输入并打印结果</p>
+<p>虽然代码变得更炫了，但其实并没有提升效率，甚至降低了可读性😂<br>如果存在实际应用的情况,还是推荐原版的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>()[::-<span class="hljs-number">1</span>]))<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -361,9 +363,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
-      
         <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/%E6%B4%9B%E8%B0%B7/" class="print-no-link">#洛谷</a>
       
     </div>
   
@@ -375,8 +377,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>东北方言编程语言给我整乐了--滚犊子吧你整的啥输入啊？</div>
-      <div>http://blog.luckysix.cc/2024/05/18/东北方言编程语言给我整乐了-滚犊子吧你整的啥输入啊？/</div>
+      <div>横跨五年的&#34;洛谷P5705[深基2.例7]数字反转&#34;题解</div>
+      <div>http://blog.luckysix.cc/2025/02/13/横跨五年的洛谷P5705-深基2-例7-数字反转题解/</div>
     </div>
     <div class="license-meta">
       
@@ -388,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年5月18日</div>
+          <div>2025年2月13日</div>
         </div>
       
       
@@ -420,18 +422,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/06/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AF%B9%E6%AC%A7%E7%9B%9F%E7%9A%84%E6%8C%96%E6%B4%9E/" title="记一次对欧盟的挖洞--尝试登榜欧盟名人堂">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">记一次对欧盟的挖洞--尝试登榜欧盟名人堂</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/19/%E4%B8%80%E6%AC%A1%E6%AD%AA%E6%89%93%E6%AD%A3%E7%9D%80%E7%9A%84edusrc%E6%8C%96%E6%B4%9E/" title="一次歪打正着的edusrc挖洞">
-                        <span class="hidden-mobile">一次歪打正着的edusrc挖洞</span>
+                      <a href="/2025zaozhuangyimo.html" title="枣庄市关于2025届高三期末质量检测(一模)的预备通知">
+                        <span class="hidden-mobile">枣庄市关于2025届高三期末质量检测(一模)的预备通知</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

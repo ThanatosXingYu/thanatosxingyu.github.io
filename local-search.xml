@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>横跨五年的&quot;洛谷P5705[深基2.例7]数字反转&quot;题解</title>
+    <link href="/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/"/>
+    <url>/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p>正好卡在2025年情人节前夕，突发奇想打开了许久未看的洛谷，想看看里面的算法题，然后发现了一道在几年前有多次提交记录的题<br><a href="https://www.luogu.com.cn/problem/P5705"><strong>P5705 【深基2.例7】数字反转</strong></a> </p><blockquote><h1 id="P5705-【深基2-例7】数字反转"><a href="#P5705-【深基2-例7】数字反转" class="headerlink" title="P5705 【深基2.例7】数字反转"></a>P5705 【深基2.例7】数字反转</h1></blockquote><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个不小于 $100$ 且小于 $1000$，同时包括小数点后一位的一个浮点数，例如 $123.4$ ，要求把这个数字翻转过来，变成 $4.321$ 并输出。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一行一个浮点数</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一行一个浮点数</p><h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">123</span>.<span class="hljs-number">4</span><br></code></pre></td></tr></table></figure><h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">4</span>.<span class="hljs-number">321</span><br></code></pre></td></tr></table></figure><h1 id="2020年4月的题解"><a href="#2020年4月的题解" class="headerlink" title="2020年4月的题解"></a>2020年4月的题解</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Python">num = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>())<br>x = <span class="hljs-built_in">int</span>(num)<br>a,b,c = <span class="hljs-built_in">str</span>(x)<br>da = num - x<br>db = <span class="hljs-built_in">round</span>(da,<span class="hljs-number">1</span>)<br>d = <span class="hljs-built_in">int</span>(db*<span class="hljs-number">10</span>)<br>end = <span class="hljs-built_in">str</span>(d)+<span class="hljs-string">&quot;.&quot;</span>+<span class="hljs-built_in">str</span>(c)+<span class="hljs-built_in">str</span>(b)+<span class="hljs-built_in">str</span>(a)<br><span class="hljs-built_in">print</span>(end)<br></code></pre></td></tr></table></figure><p><em>不知道当时的自己是处于什么精神状态写下来这段屎….</em></p><p>直接拉出来DeepSeek解释吧：  </p><blockquote><p>这段代码的目的是将一个浮点数进行处理，生成一个新的字符串。具体步骤如下：</p><ol><li><strong>输入处理</strong>：用户输入一个浮点数。</li><li><strong>整数部分提取</strong>：将浮点数转换为整数，提取整数部分。</li><li><strong>小数部分提取</strong>：用浮点数减去整数部分，得到小数部分。</li><li><strong>整数部分反转</strong>：将整数部分转换为字符串并反转。</li><li><strong>小数部分处理</strong>：将小数部分四舍五入到一位小数，并提取小数点后的第一位数字。</li><li><strong>结果拼接</strong>：将处理后的小数部分和反转后的整数部分拼接成一个新的字符串。</li></ol></blockquote><p>转念一想，就这样提交上去肯定不行啊，所以我又在今天添加了新的题解</p><h1 id="2025年2月的题解"><a href="#2025年2月的题解" class="headerlink" title="2025年2月的题解"></a>2025年2月的题解</h1><p>刚开始我是这样写的  </p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Python">num=<span class="hljs-built_in">list</span>(<span class="hljs-built_in">input</span>())<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(num)):<br>    <span class="hljs-built_in">print</span>(num[-<span class="hljs-number">1</span>-i],end=<span class="hljs-string">&quot;&quot;</span>)<br></code></pre></td></tr></table></figure><p>满怀信心的提交，期待看到绿色的AC<br>结果只能WA的一声哭出来<br><img src="/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/1.png" alt="1"></p><p>经历了各种微调，都没发现问题所在，上头的我直接用C怼了上去  </p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">char</span> a,b,c,d;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%c%c%c.%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c.%c%c%c&quot;</span>,d,c,b,a);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><p>接着有一瞬间感觉不对劲，为什么c用的是<code>%c</code><br>在重新阅读题解之后，我发现题目要求明确写了:<br><img src="/2025/02/13/%E6%A8%AA%E8%B7%A8%E4%BA%94%E5%B9%B4%E7%9A%84%E6%B4%9B%E8%B0%B7P5705-%E6%B7%B1%E5%9F%BA2-%E4%BE%8B7-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%E9%A2%98%E8%A7%A3/2.png" alt="2">  </p><blockquote><p>输出格式<br>一行一个浮点数</p></blockquote><p>所以我把代码改成了  </p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Python">num = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">input</span>())<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(num)):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(num[-<span class="hljs-number">1</span> - i]))<br></code></pre></td></tr></table></figure><p>不出预料的，<strong>Accepted</strong></p><h1 id="进一步优化"><a href="#进一步优化" class="headerlink" title="进一步优化"></a>进一步优化</h1><p>既然已经成功 AC 了，接下来就要考虑如何让代码更简洁、优雅。本来我是打算参考题解中大佬的解法的，但是点进去翻找半天并没有Python的高级解法。<br>Python 作为一门强调简洁的语言，肯定能写出更短的版本。于是我开始琢磨——有没有办法减少循环，甚至去掉<code>list()</code>这个转换  </p><p>首先，我想到 Python 字符串本身是可迭代的，不需要转换成 list 也能按索引访问。这样<code>num = list(input())</code>其实可以直接写成：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python">num = <span class="hljs-built_in">input</span>()<br></code></pre></td></tr></table></figure><p>这样就少了一步转换操作 </p><p>然后，<code>for i in range(len(num))</code>只是为了遍历<code>num</code>的每一位并倒序输出，其实 Python 早就有内置方法能更优雅地做到这一点，比如<code>[::-1]</code>这个切片操作，就可以直接反转字符串<br>于是，代码可以进一步缩短成这样：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>()[::-<span class="hljs-number">1</span>]))<br></code></pre></td></tr></table></figure><p>其实我们还可以利用<strong>Lambda 函数</strong>和<strong>map</strong>让代码更 <del>牛逼</del>高级 一些  </p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python">(<span class="hljs-keyword">lambda</span> x: <span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(x[::-<span class="hljs-number">1</span>])))(<span class="hljs-built_in">input</span>())<br></code></pre></td></tr></table></figure><p>这段代码的核心仍然是<code>x[::-1]</code>进行字符串反转，并用<code>float()</code>转换格式，最后用<code>lambda</code>使其成为匿名函数，直接处理输入并打印结果</p><p>虽然代码变得更炫了，但其实并没有提升效率，甚至降低了可读性😂<br>如果存在实际应用的情况,还是推荐原版的</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>()[::-<span class="hljs-number">1</span>]))<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>洛谷</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>枣庄市关于2025届高三期末质量检测(一模)的预备通知</title>
     <link href="/2025zaozhuangyimo.html"/>
     <url>/2025zaozhuangyimo.html</url>
@@ -167,9 +194,9 @@
     
     <tags>
       
-      <tag>ikun</tag>
-      
       <tag>Python</tag>
+      
+      <tag>ikun</tag>
       
       <tag>Github</tag>
       
@@ -231,9 +258,9 @@
       
       <tag>渗透</tag>
       
-      <tag>小程序</tag>
-      
       <tag>JavaScript</tag>
+      
+      <tag>小程序</tag>
       
     </tags>
     
@@ -343,9 +370,9 @@
     
     <tags>
       
-      <tag>Python</tag>
-      
       <tag>GitHub</tag>
+      
+      <tag>Python</tag>
       
     </tags>
     
@@ -370,9 +397,9 @@
     
     <tags>
       
-      <tag>sql注入</tag>
-      
       <tag>edusrc</tag>
+      
+      <tag>sql注入</tag>
       
     </tags>
     
